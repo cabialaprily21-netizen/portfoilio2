@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprily Cabial | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #7132CA;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .image-circle {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #8e45f5,#9d57ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 60px #7132CA;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .image-circle::before {
+            content: '';
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: rgba(22, 160, 133, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-image: url("Aprily.jpg");
+            background-size: cover;        /* fits the image without distortion */
+            background-position: center;   /* centers the image */
+            background-repeat: no-repeat;  /* prevents repeating */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
+            font-weight: bold;
+            z-index: 1;
+}
+
+        .hero-content {
+            flex: 1;
+            animation: fadeInRight 1s ease;
+        }
+
+        .greeting {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .hero-name {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-title {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .hero-title .highlight {
+            color: #7132CA;
+            font-weight: bold;
+        }
+
+        .hero-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #7132CA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:#7132CA;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background:#7132CA;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .download-btn {
+            background: #7132CA;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px #521e9a;
+        }
+
+        .download-btn:hover {
+            background:#7132CA;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #521e9a;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #170135;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #7132CA;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px #170135;
+        }
+
+        .skill-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #4b2383;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -43px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #7132CA;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #7132CA;
+        }
+
+        .job-title {
+            font-size: 1.5em;
+            color:#7132CA;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .job-duration {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(22, 160, 133, 0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-caption {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(22, 160, 133, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            color: #7132CA;
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .contact-info {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .image-circle::before {
+                width: 320px;
+                height: 320px;
+            }
+
+            .profile-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 70px;
+            }
+
+            .hero-name {
+                font-size: 2.5em;
+            }
+
+            .hero-description {
+                margin: 0 auto 30px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+
+            .experience-timeline {
+                padding-left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Aprily Cabial</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <div class="image-circle">
+                    <div class="profile-placeholder"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="greeting">Hello, Myself</div>
+                <h1 class="hero-name">Aprily Cabial</h1>
+                <div class="hero-title">And I'm a <span class="highlight">Cold Caller | Virtual Assistant</span></div>
+                <p class="hero-description">
+                    I'm a dedicated professional who thrives on connecting with people through engaging conversations and persuasive communication. I specialize in building relationships, optimizing sales strategies, and providing exceptional virtual assistance to drive results.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:cabialaprily21@gmail.com" class="social-icon">📧</a>
+                    <a href="https://www.linkedin.com/in/aprilycabial-smmva/?isSelfProfile=false" class="social-icon">💼</a>
+                    <a href="+63 933 819 2596" class="social-icon">📱</a>
+                    <a href="#" class="social-icon">🌐</a>
+                </div>
+                <button class="download-btn">Download CV</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: #666; line-height: 1.8; font-size: 1.1em;">
+            <p>I'm a Cold Caller and Virtual Assistant who thrives on connecting with people through engaging conversations and persuasive communication. I enjoy building relationships over the phone as much as analyzing call data and optimizing sales strategies to drive results. With a Bachelor's degree in Secondary Education and professional certifications, I bring both expertise and dedication to every project.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">📞</div>
+                <div class="skill-name">Cold Calling & Customer Support</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <div class="skill-name">Social Media Management</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📋</div>
+                <div class="skill-name">Content Planning & Strategy</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📅</div>
+                <div class="skill-name">Calendar & Meeting Scheduling</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📧</div>
+                <div class="skill-name">Email Management</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💼</div>
+                <div class="skill-name">Project Management</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <div class="skill-name">Data Collection & Analysis</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">☁️</div>
+                <div class="skill-name">Google Suite & MS Office</div>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon">💬</div>
+                <div class="skill-name">Slack & Team Communication</div>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon">📆</div>
+                <div class="skill-name">Appointment Scheduling</div>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <div class="skill-name">GoHighLevel CRM Management</div>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon">🎬</div>
+                <div class="skill-name">Video Editing & Content Creation</div>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon">👔</div>
+                <div class="skill-name">Executive Assistance & Administrative Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-title">Cold Caller</div>
+                <div class="company-name">Resilient Service Solutions</div>
+                <div class="job-duration">March 2024 - March 2025</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Receiving and prioritizing calls from customers or clients</li>
+                        <li>Coordinating the dispatch of services</li>
+                        <li>Monitoring and tracking vehicles or personnel in the field</li>
+                        <li>Communicating with field staff to provide instructions and updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item" style="animation-delay: 0.2s;">
+                <div class="job-title">Social Media Manager</div>
+                <div class="company-name">Upwork</div>
+                <div class="job-duration">May 2022 - August 2024</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Organizes all social media posts</li>
+                        <li>Approves all content to be posted on social media</li>
+                        <li>Engages with readers and clients online</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item" style="animation-delay: 0.4s;">
+                <div class="job-title">Virtual Assistant</div>
+                <div class="company-name">Upwork</div>
+                <div class="job-duration">April 2020 - August 2024</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Manage calendars and schedule meetings</li>
+                        <li>Set reminders and organize appointments</li>
+                        <li>Book travel, manage appointments, and handle personal scheduling</li>
+                        <li>Assist with light personal research or errands as needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Works / Portfolio Section -->
+    <!-- Sample Works / Portfolio Section -->
+<section id="portfolio">
+    <h2 class="section-title">Sample Works</h2>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="sample1.jpg" alt="Sample Work 1" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 1</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample2.jpg" alt="Sample Work 2" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 2</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample3.jpg" alt="Sample Work 3" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 3</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample4.jpg" alt="Sample Work 4" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 4</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample5.jpg" alt="Sample Work 5" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 5</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample6.jpg" alt="Sample Work 6" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 6</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample7.jpg" alt="Sample Work 7" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 7</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample8.jpg" alt="Sample Work 8" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 8</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample9.jpg" alt="Sample Work 9" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 9</div>
+        </div>
+        
+         <div class="portfolio-card">
+            <img src="sample10.png" alt="Sample Work 9" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 9</div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="sample11.jpg" alt="Sample Work 9" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 9</div>
+        </div>
+
+         <div class="portfolio-card">
+            <img src="sample12.png" alt="Sample Work 9" class="portfolio-image">
+            <div class="portfolio-caption">Sample Work 9</div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <div class="contact-info">cabialaprily21@gmail.com</div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-info">+639338192596</div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <div class="contact-label">WhatsApp</div>
+                <div class="contact-info">+639338192596</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aprily Cabial. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
